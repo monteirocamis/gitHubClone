@@ -10,7 +10,8 @@ const colorDarkFontGH = '#4F565E'
 const urlProfileGH = ' https://www.github.com/monteirocamis'
 
 
-// teste
+
+
 const rows = 6;
 const cols = 13;
 const marginHorizontal = 1;
@@ -19,9 +20,11 @@ const width =  15;
 const height = 15;
 
 
+
 const App = () =>{
 
     const goToGH = async () =>{
+
       console.log( "verificando link ... ")
     const res =  await Linking.canOpenURL(urlProfileGH)
 
@@ -187,6 +190,7 @@ return (
        <Pressable onPress={ goToGH }>
 
          <View >
+
                 <Text  style={[style.button ]}>
                     Open in GitHub
                 </Text>
@@ -223,9 +227,11 @@ const style = StyleSheet.create({
     borderWidth:2,
     },
 
+
     title: {
     fontSize:24,
     fontWeight: 'bold',
+
     },
 
     nickname: {
@@ -257,6 +263,7 @@ const style = StyleSheet.create({
     height: 20,
 
     },
+
     squareLightGreen: {
     backgroundColor: '#249624' ,
     borderRadius: 8 ,
@@ -265,6 +272,7 @@ const style = StyleSheet.create({
     },
     marginBottom10: {
         marginBottom: 10,
+
     }
 
 })
