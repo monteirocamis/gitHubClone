@@ -3,13 +3,13 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
    <!--  " open the box "  ... go to, button link -->
-  <queries>
+  <!-- <queries>
     <intent> 
       <action android:name="android.intent.action.VIEW" />
       <category android:name="android.intent.category.BROWSABLE"/>
       <data android:scheme="https" />
     </intent>
-  </queries>
+  </queries> -->
 
     <application
       android:name=".MainApplication"

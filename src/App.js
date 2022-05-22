@@ -12,9 +12,9 @@ const App = () =>{
     const goToGH = async () =>{
 
         console.log( "verificando link ... ")
-        const response =  await Linking.canOpenURL(urlProfileGH)
+        const res =  await Linking.canOpenURL(urlProfileGH)
     
-        if ( response ){
+        if ( res ){
             console.log(" link aprovado ! carregando ... ")
 
             await Linking.openURL(urlProfileGH)
@@ -50,9 +50,19 @@ const App = () =>{
                </Text>
            <Pressable onPress={ goToGH }>
 
+            <View>
+                <View style={[style.squareDarkGreen ]}>
+
+                </View>
+
+
+                <View style={[style.squareLightGreen ]}>xxx                </View>
+            </View>
+
+
             <View  >
                 <Text  style={[style.button ]}>
-                    Open in GitHub
+                    Open 
                 </Text>
             </View>
 
@@ -103,7 +113,18 @@ const style = StyleSheet.create({
         fontWeight:'bold' ,
         fontSize: 16,
         color: colorFontGH,
+    },
+    squareDarkGreen: {
+        backgroundColor: '#005E00' ,
+        borderRadius: 8 ,
+        padding: 10,
+    },
+    squareLightGreen: {
+        backgroundColor: '#249624' ,
+        borderRadius: 8 ,
+        padding: 10,
     }
+
 
 
 })
