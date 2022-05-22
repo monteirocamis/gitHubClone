@@ -1,12 +1,29 @@
 import React from "react";
-import { View , Text, StyleSheet , Image,SafeAreaView,StatusBar  } from 'react-native'
+import { View , Text, StyleSheet , Image,SafeAreaView,StatusBar , Pressable , Linking } from 'react-native'
  
 const colorGithub = '#010409'
 const imageProfileGH = 'https://avatars.githubusercontent.com/u/26682838?v=4'
 const colorFontGH = '#C9D1D9'
 const colorDarkFontGH = '#4F565E'
+const urlProfileGH = ' https://www.github.com/monteirocamis'
 
 const App = () =>{
+
+    const goToGH = async () =>{
+
+        console.log( "verificando link ... ")
+        const response =  await Linking.canOpenURL(urlProfileGH)
+    
+        if ( response ){
+            console.log(" link aprovado ! carregando ... ")
+
+            await Linking.openURL(urlProfileGH)
+        }
+
+    }
+
+
+
     return (
         <SafeAreaView  style={style.container}>
             <StatusBar backgroundColor={colorGithub} barStyle={'light-content'}/>
@@ -15,10 +32,31 @@ const App = () =>{
              source={{uri: imageProfileGH}} 
              style={style.avatar}
              accessibilityLabel='camis olhando pra frente com fundo branco'/>
-            <Text style={[style.defaultText , style.name]}> Camis Monteiro </Text>
-            <Text style={[style.defaultText , style.nickname]}>monteirocamis </Text>
-            <Text style={style.defaultText}> Front-end , IoT Developer | Founder @Codivas | Instructor @labenu </Text>
-           
+            <Text 
+            style={[style.defaultText , style.title]}
+            accessibilityLabel='nome camis nmonteiro'
+            >
+                 Camis Monteiro
+                  </Text>
+
+            <Text style={[style.defaultText , style.nickname]}
+              accessibilityLabel='nickname monteirocamis'
+              >
+                   monteirocamis 
+                   </Text>
+            <Text style={[style.defaultText , style.font14]}
+              accessibilityLabel=' Front-end , IoT Developer | Founder,Product owner @Codivas | Instructora @labenu'> 
+              Front-end , IoT Developer | Founder, Product owner @Codivas | Instructor @labenu
+               </Text>
+           <Pressable onPress={ goToGH }>
+
+            <View  >
+                <Text  style={[style.button ]}>
+                    Open in GitHub
+                </Text>
+            </View>
+
+           </Pressable>
         </View>
         </SafeAreaView>
      )
@@ -46,7 +84,7 @@ const style = StyleSheet.create({
         borderColor: 'white',
         borderWidth:2,
     },
-    name: {
+    title: {
         fontSize:24,
         fontWeight: 'bold',
     },
@@ -54,8 +92,17 @@ const style = StyleSheet.create({
         fontSize: 18,
         color: colorDarkFontGH
     },
-    decription: {
+    font14: {
         fontSize: 14,
+    },
+    button: {
+        backgroundColor: colorDarkFontGH,
+        borderRadius: 50,
+        padding: 20,
+        marginTop: 20,
+        fontWeight:'bold' ,
+        fontSize: 16,
+        color: colorFontGH,
     }
 
 
