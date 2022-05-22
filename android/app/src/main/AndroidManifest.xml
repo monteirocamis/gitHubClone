@@ -2,7 +2,8 @@
   package="com.diosecond">
 
     <uses-permission android:name="android.permission.INTERNET" />
-   <!--  " open the box "  ... go to, button link -->
+
+
   <queries>
     <intent> 
       <action android:name="android.intent.action.VIEW" />
